@@ -21,6 +21,7 @@ function parseForm (req, options) {
 };
 
 module.exports = (options) => fn => async(req, res) => {
+  options.maxFileSize = 2024*1024*1024;
   await parseForm(req, options)
   return fn(req, res)
 }
